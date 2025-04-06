@@ -31,10 +31,78 @@ O **ProTemplateX** é um modelo escalável e reutilizável para desenvolvimento 
 
 ```bash
 /ProTemplateX
-├── 1-Presentation
-│   ├── ProTemplateX.WebAPI         # API ASP.NET Core
-│   └── ProTemplateX.ReactApp       # Frontend em React
-├── 2-Application                   # Regras de negócio
-├── 3-Infra
-│   ├── Infra.Data                  # Acesso a dados (EF Core)
-│   └── Infra.Domain                # Entidades + Contratos
+🔹 1-Presentation
+├── ProTemplateX.WebAPI         # API ASP.NET Core
+└── ProTemplateX.ReactApp       # Frontend em React
+🔹 2-Application                   # Regras de negócio
+🔹 3-Infra
+    ├── Infra.Data                  # Acesso a dados (EF Core)
+    └── Infra.Domain                # Entidades + Contratos
+```
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+- [x] Cadastro de usuários com Identity
+- [x] Login com token JWT
+- [x] Proteção de rotas com autorização
+- [x] Estrutura modular e escalável
+- [x] Integração inicial com React Dashboard
+
+---
+
+## 📦 Como Executar o Projeto
+
+### 🔧 Backend
+
+```bash
+# Navegue até a API
+cd 1-Presentation/ProTemplateX.WebAPI
+
+# Execute com o Visual Studio ou CLI:
+dotnet run
+```
+
+### 💻 Frontend
+
+```bash
+# Navegue até o app React
+cd 1-Presentation/ProTemplateX.ReactApp
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor React
+npm start
+```
+
+---
+
+## 🧪 Em Desenvolvimento
+
+- [ ] Painel de administração
+- [ ] Controle de permissões por Role
+- [ ] Upload de arquivos
+- [ ] Notificações e mensagens
+
+---
+
+## 🤝 Contribuindo
+
+1. Faça um fork 🍝
+2. Crie uma branch com sua feature (`git checkout -b feature/NovaFeature`)
+3. Commit suas alterações (`git commit -m 'feat: Minha nova feature'`)
+4. Push na branch (`git push origin feature/NovaFeature`)
+5. Abra um Pull Request ✅
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+Feito com ❤️ por Kauan Cerqueira
+
