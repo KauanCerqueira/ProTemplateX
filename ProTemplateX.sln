@@ -3,96 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Presentation", "1-Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-WebAPI", "1-WebAPI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Application", "2-Application", "{E2F124BD-423C-448A-8C7F-69D26F9D371B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Application", "3-Application", "{E2F124BD-423C-448A-8C7F-69D26F9D371B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infra-Domain", "3-Infra-Domain", "{05787808-A12B-4B9F-9DC2-AD76A595E6B9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Infra-Domain", "4-Infra-Domain", "{05787808-A12B-4B9F-9DC2-AD76A595E6B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProTemplateX.WebAPI", "ProTemplateX\ProTemplateX.WebAPI.csproj", "{A4E2EFFD-4324-4056-95B7-EB84BF44B35B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProTemplateX.Data", "ProTemplateX.Data\ProTemplateX.Data.csproj", "{CA9C34E1-47C9-4D56-ACD3-5A2C4B2A8E1E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientApp", "ClientApp", "{B93D0DEA-D786-4C23-8342-EC73F27A61C6}"
-	ProjectSection(SolutionItems) = preProject
-		ClientApp\.gitignore = ClientApp\.gitignore
-		ClientApp\CHANGELOG.md = ClientApp\CHANGELOG.md
-		ClientApp\eslint.config.js = ClientApp\eslint.config.js
-		ClientApp\index.html = ClientApp\index.html
-		ClientApp\package.json = ClientApp\package.json
-		ClientApp\reacttemp.esproj = ClientApp\reacttemp.esproj
-		ClientApp\README.md = ClientApp\README.md
-		ClientApp\tsconfig.app.json = ClientApp\tsconfig.app.json
-		ClientApp\tsconfig.json = ClientApp\tsconfig.json
-		ClientApp\tsconfig.node.json = ClientApp\tsconfig.node.json
-		ClientApp\vite.config.ts = ClientApp\vite.config.ts
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Frontend", "2-Frontend", "{239ACCC2-98B4-42DB-A0CE-5D52E7B22481}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{400CB05D-33F0-41AE-A22D-6F6C55FB09C0}"
-	ProjectSection(SolutionItems) = preProject
-		ClientApp\public\vite.svg = ClientApp\public\vite.svg
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{97B6C110-4012-4813-80A8-8CF27319031E}"
-	ProjectSection(SolutionItems) = preProject
-		ClientApp\src\App.css = ClientApp\src\App.css
-		ClientApp\src\App.tsx = ClientApp\src\App.tsx
-		ClientApp\src\index.css = ClientApp\src\index.css
-		ClientApp\src\main.tsx = ClientApp\src\main.tsx
-		ClientApp\src\vite-env.d.ts = ClientApp\src\vite-env.d.ts
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{F618735C-8ACC-49D9-833A-A3C2E313FA66}"
-	ProjectSection(SolutionItems) = preProject
-		ClientApp\src\assets\react.svg = ClientApp\src\assets\react.svg
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProTemplateX.ReactApp", "ProTemplateX.ReactApp", "{A59E2247-EA3F-41F5-9CBA-1460DFDB7A59}"
-	ProjectSection(SolutionItems) = preProject
-		ProTemplateX.ReactApp\.DS_Store = ProTemplateX.ReactApp\.DS_Store
-		ProTemplateX.ReactApp\.gitignore = ProTemplateX.ReactApp\.gitignore
-		ProTemplateX.ReactApp\LICENSE.md = ProTemplateX.ReactApp\LICENSE.md
-		ProTemplateX.ReactApp\package-lock.json = ProTemplateX.ReactApp\package-lock.json
-		ProTemplateX.ReactApp\package.json = ProTemplateX.ReactApp\package.json
-		ProTemplateX.ReactApp\README.md = ProTemplateX.ReactApp\README.md
-		ProTemplateX.ReactApp\Web.config = ProTemplateX.ReactApp\Web.config
-		ProTemplateX.ReactApp\yarn.lock = ProTemplateX.ReactApp\yarn.lock
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{58B6781F-46B6-42E0-8C97-D14B204E908B}"
-	ProjectSection(SolutionItems) = preProject
-		ProTemplateX.ReactApp\public\android-chrome-192x192.png = ProTemplateX.ReactApp\public\android-chrome-192x192.png
-		ProTemplateX.ReactApp\public\android-chrome-512x512.png = ProTemplateX.ReactApp\public\android-chrome-512x512.png
-		ProTemplateX.ReactApp\public\apple-touch-icon.png = ProTemplateX.ReactApp\public\apple-touch-icon.png
-		ProTemplateX.ReactApp\public\browserconfig.xml = ProTemplateX.ReactApp\public\browserconfig.xml
-		ProTemplateX.ReactApp\public\favicon-16x16.png = ProTemplateX.ReactApp\public\favicon-16x16.png
-		ProTemplateX.ReactApp\public\favicon-32x32.png = ProTemplateX.ReactApp\public\favicon-32x32.png
-		ProTemplateX.ReactApp\public\favicon.ico = ProTemplateX.ReactApp\public\favicon.ico
-		ProTemplateX.ReactApp\public\index.html = ProTemplateX.ReactApp\public\index.html
-		ProTemplateX.ReactApp\public\manifest.json = ProTemplateX.ReactApp\public\manifest.json
-		ProTemplateX.ReactApp\public\mstile-150x150.png = ProTemplateX.ReactApp\public\mstile-150x150.png
-		ProTemplateX.ReactApp\public\robots.txt = ProTemplateX.ReactApp\public\robots.txt
-		ProTemplateX.ReactApp\public\safari-pinned-tab.svg = ProTemplateX.ReactApp\public\safari-pinned-tab.svg
-		ProTemplateX.ReactApp\public\site.webmanifest = ProTemplateX.ReactApp\public\site.webmanifest
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7F182095-292D-4CF6-9ADF-D12ABD651C39}"
-	ProjectSection(SolutionItems) = preProject
-		ProTemplateX.ReactApp\src\.DS_Store = ProTemplateX.ReactApp\src\.DS_Store
-		ProTemplateX.ReactApp\src\index.js = ProTemplateX.ReactApp\src\index.js
-		ProTemplateX.ReactApp\src\routes.js = ProTemplateX.ReactApp\src\routes.js
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{BE5AA904-BAD3-4231-A46E-7581855ACBEF}"
-	ProjectSection(SolutionItems) = preProject
-		ProTemplateX.ReactApp\src\assets\.DS_Store = ProTemplateX.ReactApp\src\assets\.DS_Store
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{B55E1A80-7709-4E2C-A5D9-2832DEC6207A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{E29B1F31-638B-472E-AFAA-686C383D423E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scss", "scss", "{CBE72D46-E395-4CB5-A1DB-C8ACF06F568B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProTemplateX.MVC", "ProTemplateX.MVC\ProTemplateX.MVC.csproj", "{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +31,10 @@ Global
 		{CA9C34E1-47C9-4D56-ACD3-5A2C4B2A8E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA9C34E1-47C9-4D56-ACD3-5A2C4B2A8E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA9C34E1-47C9-4D56-ACD3-5A2C4B2A8E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,17 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A4E2EFFD-4324-4056-95B7-EB84BF44B35B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{CA9C34E1-47C9-4D56-ACD3-5A2C4B2A8E1E} = {05787808-A12B-4B9F-9DC2-AD76A595E6B9}
-		{B93D0DEA-D786-4C23-8342-EC73F27A61C6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{400CB05D-33F0-41AE-A22D-6F6C55FB09C0} = {B93D0DEA-D786-4C23-8342-EC73F27A61C6}
-		{97B6C110-4012-4813-80A8-8CF27319031E} = {B93D0DEA-D786-4C23-8342-EC73F27A61C6}
-		{F618735C-8ACC-49D9-833A-A3C2E313FA66} = {97B6C110-4012-4813-80A8-8CF27319031E}
-		{A59E2247-EA3F-41F5-9CBA-1460DFDB7A59} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{58B6781F-46B6-42E0-8C97-D14B204E908B} = {A59E2247-EA3F-41F5-9CBA-1460DFDB7A59}
-		{7F182095-292D-4CF6-9ADF-D12ABD651C39} = {A59E2247-EA3F-41F5-9CBA-1460DFDB7A59}
-		{BE5AA904-BAD3-4231-A46E-7581855ACBEF} = {7F182095-292D-4CF6-9ADF-D12ABD651C39}
-		{B55E1A80-7709-4E2C-A5D9-2832DEC6207A} = {7F182095-292D-4CF6-9ADF-D12ABD651C39}
-		{E29B1F31-638B-472E-AFAA-686C383D423E} = {7F182095-292D-4CF6-9ADF-D12ABD651C39}
-		{CBE72D46-E395-4CB5-A1DB-C8ACF06F568B} = {7F182095-292D-4CF6-9ADF-D12ABD651C39}
+		{ABB84395-D0A7-43F7-B61E-2F7E3997DBBA} = {239ACCC2-98B4-42DB-A0CE-5D52E7B22481}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AFE4A77-D4C3-451E-8153-6F3756DF711C}

@@ -1,0 +1,205 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png">
+    <title>Material Dashboard 2</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link href="~/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="~/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show bg-gray-200">
+
+    <!-- ASIDE MENU (Sidebar lateral) -->
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
+        <div class="sidenav-header d-flex justify-content-center">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" id="iconSidenav"></i>
+            <a class="navbar-brand m-0 d-flex justify-content-center" href="/">
+                <span class="font-weight-bold text-white">ProTemplateX</span>
+            </a>
+        </div>
+        <style>
+            .sidenav {
+                height: 100vh !important;
+            }
+        </style>
+
+        <hr class="horizontal light mt-0 mb-2" />
+        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main" style="overflow-y: unset; max-height: none;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link bg-white text-dark active" href="/">
+                        <i class="material-icons text-dark opacity-10 me-2" aria-hidden="true">dashboard</i>
+                        <span class="nav-link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Users">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">groups</i>
+                        <span class="nav-link-text">Usuários</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Reports">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">bar_chart</i>
+                        <span class="nav-link-text">Relatórios</span>
+                    </a>
+                </li>
+
+                <!-- PÁGINAS 1 a 5 -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Page1">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">description</i>
+                        <span class="nav-link-text">Página 1</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Page2">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">description</i>
+                        <span class="nav-link-text">Página 2</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Page3">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">description</i>
+                        <span class="nav-link-text">Página 3</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Page4">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">description</i>
+                        <span class="nav-link-text">Página 4</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Home/Page5">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">description</i>
+                        <span class="nav-link-text">Página 5</span>
+                    </a>
+                </li>
+                <!-- FIM das páginas -->
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Settings">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">settings</i>
+                        <span class="nav-link-text">Configurações</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/Help">
+                        <i class="material-icons text-white opacity-10 me-2" aria-hidden="true">help_outline</i>
+                        <span class="nav-link-text">Ajuda</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+
+        <!-- NAVBAR (topo) -->
+        <style>
+            .input-group.input-group-outline .form-control:focus {
+                border-color: #000 !important;
+                box-shadow: 0 1px 0 0 #000 !important;
+            }
+
+            .input-group.input-group-outline.is-focused .form-label,
+            .input-group.input-group-outline.is-filled .form-label {
+                color: #000 !important;
+            }
+        </style>
+
+        <nav class="navbar navbar-expand-lg px-4 py-2 mb-4" style="background: transparent !important;">
+            <div class="container-fluid d-flex justify-content-end align-items-center">
+                <!-- Ícone de Notificações -->
+                <!-- Ícone de Notificações com Dropdown -->
+                <div class="dropdown me-3">
+                    <a href="#" class="text-dark position-relative dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-icons-round">notifications</i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end mt-2">
+                        <li><a class="dropdown-item" href="#">Notificação 1</a></li>
+                        <li><a class="dropdown-item" href="#">Notificação 2</a></li>
+                        <li><a class="dropdown-item" href="#">Notificação 3</a></li>
+                    </ul>
+                </div>
+
+                <!-- Botão de Perfil -->
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="material-icons-round me-2">account_circle</i>
+                        <span class="d-none d-md-inline">Perfil</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end mt-2">
+                        <li><a class="dropdown-item" href="#">Minha Conta</a></li>
+                        <li><a class="dropdown-item" href="#">Configurações</a></li>
+                        <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEÚDO RENDERIZADO PELA VIEW -->
+        <div class="container-fluid py-4">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="~/assets/js/core/popper.min.js"></script>
+    <script src="~/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="~/assets/js/material-dashboard.min.js?v=3.0.0"></script>
+</body>
+</html>
+<style>
+    /* Remove os quadrados pretos animados do dropdown */
+    .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .dropdown .dropdown-toggle:focus,
+    .dropdown .dropdown-toggle:active,
+    .dropdown .dropdown-toggle:visited {
+        box-shadow: none !important;
+        outline: none !important;
+        background-color: transparent !important;
+    }
+
+    /* Tira o fundo animado escuro do Material Dashboard ao focar */
+    .dropdown-menu.show {
+        animation: none !important;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.1); /* Sombra sutil opcional */
+    }
+
+    /* Remove qualquer efeito hover estranho nos ícones */
+    .dropdown-toggle i {
+        background: none !important;
+        box-shadow: none !important;
+    }
+</style>
+

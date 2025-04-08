@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-4 text-white">
+
+    <!-- Linha de KPIs -->
+    <div class="row mb-4">
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-dark shadow-lg text-white">
+                <div class="card-body text-center">
+                    <h6 class="text-sm text-white">Total de Usuários</h6>
+                    <h3 class="font-weight-bold text-white">1.250</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-dark shadow-lg text-white">
+                <div class="card-body text-center">
+                    <h6 class="text-sm text-white">Vendas do Mês</h6>
+                    <h3 class="font-weight-bold text-white">R$ 14.300</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-dark shadow-lg text-white">
+                <div class="card-body text-center">
+                    <h6 class="text-sm text-white">Visitas no Site</h6>
+                    <h3 class="font-weight-bold text-white">5.200</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card bg-dark shadow-lg text-white">
+                <div class="card-body text-center">
+                    <h6 class="text-sm text-white">Conversões</h6>
+                    <h3 class="font-weight-bold text-white">326</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botões estilo card escuro -->
+    <div class="row justify-content-center mb-4">
+        @for (int i = 1; i <= 5; i++)
+        {
+            <div class="col-md-2 col-sm-6 mb-3">
+                <a href="/Home/Page@i" class="text-decoration-none">
+                    <div class="card card-background bg-dark text-white text-center shadow-lg hover-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1 text-white">Página @i</h5>
+                            <p class="text-sm text-white">Ir para funcionalidades</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+    <!-- Gráficos lado a lado -->
+    <div class="row mb-4">
+        <div class="col-md-8 mb-4">
+            <div class="card bg-dark text-white shadow-lg h-100">
+                <div class="card-header pb-0 bg-dark border-bottom border-secondary">
+
+                    <h6 class="text-white">Gráfico de Acessos</h6>
+                </div>
+                <div class="card-body">
+                    <canvas id="line-chart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-white shadow-lg h-100">
+                <div class="card-header pb-0 bg-dark border-bottom border-secondary">
+                    <h6 class="text-white">Distribuição</h6>
+                </div>
+                <div class="card-body">
+                    <canvas id="pie-chart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela de Últimos Registros -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-dark text-white shadow-lg">
+                <div class="card-header pb-0 bg-dark border-bottom border-secondary">
+                    <h6 class="text-dark">Últimos Registros</h6>
+                </div>
+                <div class="card-body px-0 pt-3 pb-2">
+                    <div class="table-responsive p-3">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-xs font-weight-bolder text-white">ID</th>
+                                    <th class="text-uppercase text-xs font-weight-bolder text-white ps-2">Nome</th>
+                                    <th class="text-uppercase text-xs font-weight-bolder text-white ps-2">Data</th>
+                                    <th class="text-uppercase text-xs font-weight-bolder text-white ps-2">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-white">001</td>
+                                    <td class="text-white">João Silva</td>
+                                    <td class="text-white">05/04/2025</td>
+                                    <td><span class="badge bg-success text-white">Ativo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-white">002</td>
+                                    <td class="text-white">Maria Souza</td>
+                                    <td class="text-white">04/04/2025</td>
+                                    <td><span class="badge bg-warning text-white">Pendente</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-white">003</td>
+                                    <td class="text-white">Carlos Oliveira</td>
+                                    <td class="text-white">03/04/2025</td>
+                                    <td><span class="badge bg-danger text-white">Cancelado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilo global -->
+<style>
+    .card.card-background:hover {
+        background-color: #1a1a1a !important;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .table th, .table td,
+    .card h5, .card h6, .card p,
+    .badge {
+        color: #fff !important;
+    }
+</style>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const lineCtx = document.getElementById("line-chart").getContext("2d");
+    const pieCtx = document.getElementById("pie-chart").getContext("2d");
+
+    new Chart(lineCtx, {
+        type: "line",
+        data: {
+            labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
+            datasets: [{
+                label: "Visitas",
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 0,
+                borderColor: "#ffffff",
+                backgroundColor: "rgba(255,255,255,0.2)",
+                fill: true,
+                data: [50, 40, 300, 220, 500, 250],
+                maxBarThickness: 6
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            interaction: { intersect: false, mode: 'index' },
+            scales: {
+                y: {
+                    ticks: { color: "#fff" },
+                    grid: { drawBorder: false, color: "#444" }
+                },
+                x: {
+                    ticks: { color: "#fff" },
+                    grid: { drawBorder: false, color: "#444" }
+                }
+            }
+        }
+    });
+
+    new Chart(pieCtx, {
+        type: "pie",
+        data: {
+            labels: ["Desktop", "Mobile", "Tablet"],
+            datasets: [{
+                data: [60, 30, 10],
+                backgroundColor: ["#ffffff", "#999999", "#555555"],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: { color: "#fff" }
+                }
+            }
+        }
+    });
+</script>

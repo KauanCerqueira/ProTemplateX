@@ -4,9 +4,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProTemplateX.Data.Context;
 using ProTemplateX.Data.Entities;
+using System.Diagnostics;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var reactAppPath = @"C:\Users\conta\source\repos\ProTemplateX\ProTemplateX.ReactApp";
+
+var startInfo = new ProcessStartInfo("cmd", "/c npm start")
+{
+    WorkingDirectory = reactAppPath,
+    CreateNoWindow = false
+};
+
+Process.Start(startInfo);
 
 // 1. DB Context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
