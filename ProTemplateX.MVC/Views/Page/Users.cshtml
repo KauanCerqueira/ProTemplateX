@@ -1,31 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Usuários";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container mt-5">
+<div class="container mt-5 text-white">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">
-            <i class="material-icons text-primary me-2 align-middle">groups</i>
+            <i class="material-icons me-2 align-middle">groups</i>
             Gerenciamento de Usuários
         </h2>
-        <a href="#" class="btn btn-success">
+        <a href="#" class="btn btn-black border-white text-white">
             <i class="material-icons me-1">person_add</i> Novo Usuário
         </a>
     </div>
 
-    <!-- CAMPO DE BUSCA -->
+    <!-- Campo de busca -->
     <div class="input-group mb-3">
-        <span class="input-group-text bg-white">
-            <i class="material-icons text-secondary">search</i>
+        <span class="input-group-text bg-dark border-white text-white">
+            <i class="material-icons">search</i>
         </span>
-        <input type="text" class="form-control" placeholder="Buscar por nome, e-mail...">
+        <input type="text" class="form-control bg-dark text-white border-white" placeholder="Buscar por nome, e-mail...">
     </div>
 
-    <!-- TABELA DE USUÁRIOS -->
-    <div class="card shadow border-0">
+    <!-- Tabela -->
+    <div class="card bg-black text-white shadow border-0">
         <div class="card-body table-responsive p-0">
-            <table class="table table-hover align-middle mb-0">
-                <thead class="bg-primary text-white">
+            <table class="table table-hover table-dark align-middle mb-0">
+                <thead class="bg-dark text-white">
                     <tr>
                         <th>Nome</th>
                         <th>Email</th>
@@ -35,17 +36,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- USUÁRIO EXEMPLO -->
                     <tr>
                         <td>João Silva</td>
                         <td>joao@email.com</td>
                         <td>Administrador</td>
                         <td><span class="badge bg-success">Ativo</span></td>
                         <td class="text-end">
-                            <a href="#" class="btn btn-sm btn-primary me-2">
+                            <button class="btn btn-sm btn-outline-light me-2" onclick="abrirEditorUsuario('João Silva', 'joao@email.com', 'Administrador', 'Ativo')">
                                 <i class="material-icons">edit</i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-danger">
+                            </button>
+                            <a href="#" class="btn btn-sm btn-outline-danger">
                                 <i class="material-icons">delete</i>
                             </a>
                         </td>
@@ -56,17 +56,73 @@
                         <td>Usuário</td>
                         <td><span class="badge bg-secondary">Inativo</span></td>
                         <td class="text-end">
-                            <a href="#" class="btn btn-sm btn-primary me-2">
+                            <button class="btn btn-sm btn-outline-light me-2" onclick="abrirEditorUsuario('Maria Souza', 'maria@email.com', 'Usuário', 'Inativo')">
                                 <i class="material-icons">edit</i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-danger">
+                            </button>
+                            <a href="#" class="btn btn-sm btn-outline-danger">
                                 <i class="material-icons">delete</i>
                             </a>
                         </td>
                     </tr>
-                    <!-- ADICIONE MAIS AQUI -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<!-- MENU DE EDIÇÃO EM TELA CHEIA -->
+<div id="editarUsuarioModal" class="position-fixed top-0 start-0 w-100 h-100 bg-black bg-opacity-95 d-none z-3">
+    <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white px-3">
+        <div class="text-end w-100">
+            <button class="btn btn-outline-light mb-4" onclick="fecharEditorUsuario()">
+                <i class="material-icons">close</i> Fechar
+            </button>
+        </div>
+        <div class="card bg-dark text-white p-5 rounded-4 shadow-lg w-100" style="max-width: 600px;">
+            <h3 class="mb-4"><i class="material-icons me-2">edit</i>Editar Usuário</h3>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input type="text" id="editNome" class="form-control bg-black text-white border-white" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="editEmail" class="form-control bg-black text-white border-white" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select id="editStatus" class="form-select bg-black text-white border-white">
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Papel</label>
+                    <select id="editPapel" class="form-select bg-black text-white border-white">
+                        <option value="Usuário">Usuário</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-success">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function abrirEditorUsuario(nome, email, papel, status) {
+            document.getElementById('editNome').value = nome;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editPapel').value = papel;
+            document.getElementById('editStatus').value = status;
+            document.getElementById('editarUsuarioModal').classList.remove('d-none');
+        }
+
+        function fecharEditorUsuario() {
+            document.getElementById('editarUsuarioModal').classList.add('d-none');
+        }
+    </script>
+}

@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ProTemplateX.Application.DTOs;
+using ProTemplateX.Application.Interfaces;
+using ProTemplateX.Application.Services;
 using ProTemplateX.Data.Entities;
 using ProTemplateX.MVC.Models;
 using System.Threading.Tasks;
@@ -10,11 +13,13 @@ namespace ProTemplateX.Presentation.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IAuthService _authService;
 
-        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IAuthService authService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _authService = authService;
         }
 
         [HttpGet]
@@ -29,17 +34,25 @@ namespace ProTemplateX.Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            var result = await _signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var dto = new LoginDTO
+            {
+                Email = model.Email,
+                Password = model.Password,
+                RememberMe = model.RememberMe
+            };
+
+            var result = await _authService.LoginAsync(dto);
 
             if (result.Succeeded)
-            {
                 return RedirectToAction("Index", "Home");
-            }
 
             TempData["Error"] = "Email ou senha inválidos!";
-            return View();
+            return View(model);
         }
 
         [HttpGet]

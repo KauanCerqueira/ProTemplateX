@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ProTemplateX.Data;
 using ProTemplateX.Data.Context;
 using ProTemplateX.Data.Entities;
+using ProTemplateX.Application.Interfaces;
+using ProTemplateX.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,13 +25,16 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Auth/AccessDenied";
 });
 
-// 3. MVC e Razor
+// 3. Injeção de Dependências
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+// 4. MVC e Razor
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews(); // <- Suporte a MVC
 
 var app = builder.Build();
 
-// 4. Pipeline de Middleware
+// 5. Pipeline de Middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");

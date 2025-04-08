@@ -1,72 +1,102 @@
 ﻿@{
     ViewData["Title"] = "Configurações";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- Título -->
+    <div class="d-flex justify-content-between align-items-center mb-4 text-white">
         <h2 class="mb-0">
-            <i class="material-icons text-primary me-2 align-middle">settings</i>
+            <i class="material-icons me-2 align-middle">settings</i>
             Configurações do Sistema
         </h2>
     </div>
 
     <!-- INFORMAÇÕES DA CONTA -->
-    <div class="card shadow border-0 mb-4 p-4">
-        <h5 class="mb-3">Informações da Conta</h5>
-        <form>
-            <div class="mb-3">
-                <label class="form-label">Nome de Usuário</label>
-                <input type="text" class="form-control" value="joaosilva">
+    <div class="card bg-black text-white shadow border-0 mb-4 p-4 rounded-4">
+        <h5 class="mb-3"><i class="material-icons me-2 align-middle">account_circle</i> Informações da Conta</h5>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <label class="form-label text-white">Nome de Usuário</label>
+                    <input type="text" class="form-control bg-white text-dark rounded-2 border-0" value="joaosilva">
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">E-mail</label>
-                <input type="email" class="form-control" value="joao@email.com">
+            <div class="col-md-6">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <label class="form-label text-white">E-mail</label>
+                    <input type="email" class="form-control bg-white text-dark rounded-2 border-0" value="joao@email.com">
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Senha</label>
-                <input type="password" class="form-control" value="••••••••">
+            <div class="col-md-6">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <label class="form-label text-white">Senha</label>
+                    <input type="password" class="form-control bg-white text-dark rounded-2 border-0" value="••••••••">
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        </form>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-dark rounded-3 px-4 text-white">Salvar Alterações</button>
+        </div>
     </div>
 
     <!-- PREFERÊNCIAS DO SISTEMA -->
-    <div class="card shadow border-0 mb-4 p-4">
-        <h5 class="mb-3">Preferências do Sistema</h5>
-        <form>
-            <div class="mb-3">
-                <label class="form-label">Idioma</label>
-                <select class="form-select">
-                    <option selected>Português (Brasil)</option>
-                    <option>Inglês</option>
-                    <option>Espanhol</option>
-                </select>
+    <div class="card bg-black text-white shadow border-0 mb-4 p-4 rounded-4">
+        <h5 class="mb-3"><i class="material-icons me-2 align-middle">tune</i> Preferências do Sistema</h5>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <label class="form-label text-white">Idioma</label>
+                    <select class="form-select bg-white text-dark rounded-2 border-0">
+                        <option selected>Português (Brasil)</option>
+                        <option>Inglês</option>
+                        <option>Espanhol</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" id="modoEscuro" checked>
-                <label class="form-check-label" for="modoEscuro">Modo escuro ativado</label>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="form-check form-switch mt-3 ms-3">
+                    <input class="form-check-input bg-dark border border-white" type="checkbox" id="modoEscuro" checked>
+                    <label class="form-check-label text-white ms-2" for="modoEscuro">Modo escuro ativado</label>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Salvar Preferências</button>
-        </form>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-dark rounded-3 px-4 text-white">Salvar Preferências</button>
+        </div>
     </div>
 
     <!-- NOTIFICAÇÕES -->
-    <div class="card shadow border-0 mb-4 p-4">
-        <h5 class="mb-3">Notificações</h5>
-        <form>
-            <div class="form-check form-switch mb-2">
-                <input class="form-check-input" type="checkbox" id="notifEmail" checked>
-                <label class="form-check-label" for="notifEmail">Notificações por e-mail</label>
+    <div class="card bg-black text-white shadow border-0 mb-4 p-4 rounded-4">
+        <h5 class="mb-3"><i class="material-icons me-2 align-middle">notifications</i> Notificações</h5>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input bg-dark border border-white" type="checkbox" id="notifEmail" checked>
+                        <label class="form-check-label text-white ms-2" for="notifEmail">Notificações por e-mail</label>
+                    </div>
+                </div>
             </div>
-            <div class="form-check form-switch mb-2">
-                <input class="form-check-input" type="checkbox" id="notifPush">
-                <label class="form-check-label" for="notifPush">Notificações por push</label>
+            <div class="col-md-4">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input bg-dark border border-white" type="checkbox" id="notifPush">
+                        <label class="form-check-label text-white ms-2" for="notifPush">Notificações por push</label>
+                    </div>
+                </div>
             </div>
-            <div class="form-check form-switch mb-2">
-                <input class="form-check-input" type="checkbox" id="notifSms">
-                <label class="form-check-label" for="notifSms">Notificações por SMS</label>
+            <div class="col-md-4">
+                <div class="card bg-dark p-3 border-0 rounded-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input bg-dark border border-white" type="checkbox" id="notifSms">
+                        <label class="form-check-label text-white ms-2" for="notifSms">Notificações por SMS</label>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Salvar Notificações</button>
-        </form>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-dark rounded-3 px-4 text-white">Salvar Notificações</button>
+        </div>
     </div>
 </div>

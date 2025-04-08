@@ -1,11 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Relatórios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container mt-5">
+<style>
+    .card.bg-dark h5,
+    .card.bg-dark h3,
+    .card.bg-dark p,
+    .card.bg-dark span {
+        color: #ffffff !important;
+    }
+</style>
+
+<div class="container mt-5 text-white">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">
-            <i class="material-icons text-primary me-2 align-middle">bar_chart</i>
+            <i class="material-icons me-2 align-middle">bar_chart</i>
             Relatórios Gerais
         </h2>
     </div>
@@ -13,21 +23,21 @@
     <!-- KPIs -->
     <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card shadow border-0 p-3 text-center">
-                <h5>Total de Vendas</h5>
-                <h3 class="text-success">R$ 12.540</h3>
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4 text-center">
+                <h5 class="mb-1">Total de Vendas</h5>
+                <h3 class="fw-bold">R$ 12.540</h3>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card shadow border-0 p-3 text-center">
-                <h5>Novos Usuários</h5>
-                <h3 class="text-info">358</h3>
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4 text-center">
+                <h5 class="mb-1">Novos Usuários</h5>
+                <h3 class="fw-bold">358</h3>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card shadow border-0 p-3 text-center">
-                <h5>Conversões</h5>
-                <h3 class="text-warning">27%</h3>
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4 text-center">
+                <h5 class="mb-1">Conversões</h5>
+                <h3 class="fw-bold">27%</h3>
             </div>
         </div>
     </div>
@@ -35,13 +45,13 @@
     <!-- Gráficos -->
     <div class="row mb-5">
         <div class="col-md-8 mb-4">
-            <div class="card shadow border-0 p-3">
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4">
                 <h5 class="mb-3">Vendas Mensais</h5>
                 <canvas id="barChart" height="200"></canvas>
             </div>
         </div>
         <div class="col-md-4 mb-4">
-            <div class="card shadow border-0 p-3">
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4">
                 <h5 class="mb-3">Categorias</h5>
                 <canvas id="pieChart" height="200"></canvas>
             </div>
@@ -49,38 +59,40 @@
     </div>
 
     <!-- Tabela -->
-    <div class="card shadow border-0 p-3">
+    <div class="card bg-dark text-white shadow-lg border-0 rounded-4 p-4">
         <h5 class="mb-3">Últimos Registros</h5>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Usuário</th>
-                    <th>Ação</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08/04/2025</td>
-                    <td>João Silva</td>
-                    <td>Compra</td>
-                    <td>R$ 299,90</td>
-                </tr>
-                <tr>
-                    <td>08/04/2025</td>
-                    <td>Maria Souza</td>
-                    <td>Cadastro</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>07/04/2025</td>
-                    <td>Carlos Lima</td>
-                    <td>Upgrade de plano</td>
-                    <td>R$ 89,90</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Usuário</th>
+                        <th>Ação</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08/04/2025</td>
+                        <td>João Silva</td>
+                        <td>Compra</td>
+                        <td>R$ 299,90</td>
+                    </tr>
+                    <tr>
+                        <td>08/04/2025</td>
+                        <td>Maria Souza</td>
+                        <td>Cadastro</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>07/04/2025</td>
+                        <td>Carlos Lima</td>
+                        <td>Upgrade de plano</td>
+                        <td>R$ 89,90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -93,10 +105,31 @@
             data: {
                 labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'],
                 datasets: [{
-                    label: 'Vendas',
+                    label: 'Vendas (R$)',
                     data: [5000, 4000, 6500, 8000, 7200],
-                    backgroundColor: '#3A416F'
+                    backgroundColor: ['#4285F4', '#34A853', '#A142F4', '#FBBC05', '#EA4335'],
+                    borderWidth: 0
                 }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#ffffff' },
+                        grid: { color: '#444' }
+                    },
+                    y: {
+                        ticks: { color: '#ffffff' },
+                        grid: { color: '#444' }
+                    }
+                }
             }
         });
 
@@ -107,8 +140,19 @@
                 labels: ['Eletrônicos', 'Roupas', 'Serviços'],
                 datasets: [{
                     data: [40, 35, 25],
-                    backgroundColor: ['#3A416F', '#17C1E8', '#FBCF33']
+                    backgroundColor: ['#4285F4', '#FBBC05', '#34A853']
                 }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                }
             }
         });
     </script>

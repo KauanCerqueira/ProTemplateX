@@ -46,7 +46,7 @@
         @for (int i = 1; i <= 5; i++)
         {
             <div class="col-md-2 col-sm-6 mb-3">
-                <a href="/Home/Page@i" class="text-decoration-none">
+                <a href="@($"/Page/Page{i}")" class="text-decoration-none">
                     <div class="card card-background bg-dark text-white text-center shadow-lg hover-shadow">
                         <div class="card-body">
                             <h5 class="card-title mb-1 text-white">Página @i</h5>
