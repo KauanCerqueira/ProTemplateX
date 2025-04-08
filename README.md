@@ -40,66 +40,70 @@ O **ProTemplateX** é um modelo escalável e reutilizável para desenvolvimento 
 🔹 3-Infra
     🔽— Infra.Data             # Acesso a dados (EF Core)
     └️ Infra.Domain           # Entidades + Interfaces
-```
+✅ Funcionalidades Implementadas
+ Cadastro de usuários com Identity
 
----
+ Login com autenticação JWT
 
-## ✅ Funcionalidades Implementadas
+ Telas de Login e Cadastro customizadas
 
-- [x] Cadastro de usuários com Identity
-- [x] Login com autenticação JWT
-- [x] Telas de Login e Cadastro customizadas
-- [x] Modal de Termos de Uso
-- [x] Estrutura modular e escalável (Camadas Domain, Data e Application)
+ Modal de Termos de Uso
 
----
+ Estrutura modular e escalável (Camadas Domain, Data e Application)
 
-## 📦 Como Executar o Projeto
+📦 Como Executar o Projeto
+🪰 Requisitos
+.NET 8 SDK
 
-### 🪰 Requisitos
+Visual Studio 2022 ou VS Code
 
-- .NET 8 SDK
-- Visual Studio 2022 ou VS Code
-- SQL Server (ou LocalDB)
+SQL Server (ou LocalDB)
 
-### ⚖️ Backend + Frontend (Razor)
-
-```bash
+⚖️ Backend + Frontend (Razor)
+bash
+Copiar
+Editar
 # Navegue até a API
 cd 1-Presentation/ProTemplateX.WebAPI
 
 # Execute o projeto com Visual Studio ou CLI:
 dotnet run
-```
+Acesse: http://localhost:5000
 
-> Acesse: http://localhost:5000
+🧪 Em Desenvolvimento
+ Painel de administração com cards e gráficos
 
----
+ Controle de permissões por Role
 
-## 🧪 Em Desenvolvimento
+ Upload de arquivos
 
-- [ ] Painel de administração com cards e gráficos
-- [ ] Controle de permissões por Role
-- [ ] Upload de arquivos
-- [ ] Dashboard com KPIs, gráficos e tabela de dados
+ Dashboard com KPIs, gráficos e tabela de dados
 
----
+🤝 Contribuindo
+Faça um fork 🍝
 
-## 🤝 Contribuindo
+Crie uma branch com sua feature (git checkout -b feature/NovaFeature)
 
-1. Faça um fork 🍝  
-2. Crie uma branch com sua feature (`git checkout -b feature/NovaFeature`)  
-3. Commit suas alterações (`git commit -m 'feat: Minha nova feature'`)  
-4. Push na branch (`git push origin feature/NovaFeature`)  
-5. Abra um Pull Request ✅  
+Commit suas alterações (git commit -m 'feat: Minha nova feature')
 
----
+Push na branch (git push origin feature/NovaFeature)
 
-## 📄 Licença
+Abra um Pull Request ✅
 
+📄 Licença
 Este projeto está sob a licença MIT.
-
----
 
 Feito com ❤️ por Kauan Cerqueira
 
+swift
+Copiar
+Editar
+
+Você pode agora adicionar as imagens no seu repositório e usá-las nas seções do README, como mencionei anteriormente. Basta usar a sintaxe de Markdown para adicionar imagens:
+
+```markdown
+![Logo](caminho/para/logo.png)
+![Tela de Login](caminho/para/login.png)
+![Dashboard 1](caminho/para/dashboard1.png)
+![Dashboard 2](caminho/para/dashboard2.png)
+![Profile](caminho/para/profile.png)
