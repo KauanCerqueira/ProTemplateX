@@ -61,7 +61,7 @@ O **ProTemplateX** é um modelo escalável e reutilizável para desenvolvimento 
 
 Tela de login customizada com layout moderno, validação de campos e integração com Identity + JWT.
 
-![Tela de Login](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/main/ProTemplateX.MVC/wwwroot/assets/img/prints/login.png)
+![Tela de Login](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/login.png)
 
 ---
 
@@ -69,7 +69,7 @@ Tela de login customizada com layout moderno, validação de campos e integraç�
 
 Exibição dos dados do usuário logado, com visual limpo e preparado para edição e upload de imagem.
 
-![Profile](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/main/ProTemplateX.MVC/wwwroot/assets/img/prints/profile.png)
+![Profile](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/profile.png)
 
 ---
 
@@ -77,7 +77,7 @@ Exibição dos dados do usuário logado, com visual limpo e preparado para ediç
 
 Exibe KPIs e painéis informativos com base nos dados do sistema. Desenvolvido com Razor Views e Bootstrap.
 
-![Dashboard 1](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/main/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard1.png)
+![Dashboard 1](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard1.png)
 
 ---
 
@@ -85,7 +85,7 @@ Exibe KPIs e painéis informativos com base nos dados do sistema. Desenvolvido c
 
 Versão aprimorada com cards adicionais e mais dados visuais em tempo real.
 
-![Dashboard 2](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/main/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard2.png)
+![Dashboard 2](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard2.png)
 
 ---
 
@@ -93,7 +93,7 @@ Versão aprimorada com cards adicionais e mais dados visuais em tempo real.
 
 Identidade visual personalizável para projetos empresariais.
 
-![Logo](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/main/ProTemplateX.MVC/wwwroot/assets/img/prints/Logo.png)
+![Logo](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/Logo.png)
 
 ---
 
