@@ -1,0 +1,202 @@
+﻿@{
+    ViewData["Title"] = "Perfil do Usuário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Estilos customizados para a página de perfil -->
+<style>
+        .profile-page .card-custom {
+            background-color: #1e1e2f !important;
+            border: none;
+            color: white !important;
+            border-radius: 1rem;
+        }
+
+        .profile-page .text-muted-custom {
+            color: #cccccc !important;
+        }
+
+        .profile-page .progress-custom {
+            height: 10px;
+            background-color: #2c2c3e;
+            border-radius: 10px;
+        }
+
+        .profile-page .progress-bar-custom {
+            border-radius: 10px;
+        }
+
+        .profile-page .badge-custom {
+            background-color: #29293d;
+            color: white !important;
+        }
+
+        .profile-page .btn-outline-light-custom {
+            border-color: #555 !important;
+            color: white !important;
+        }
+
+            .profile-page .btn-outline-light-custom:hover {
+                background-color: #444 !important;
+                color: white !important;
+            }
+
+        .profile-page,
+        .profile-page * {
+            color: white !important;
+        }
+</style>
+
+<!-- CONTAINER PRINCIPAL -->
+<div class="container-fluid py-4 profile-page">
+
+    <!-- ✅ SEÇÃO: IDENTIDADE + NÍVEL DO USUÁRIO -->
+    <div class="card card-custom mb-4">
+        <div class="card-body row align-items-center">
+            <!-- Avatar -->
+            <div class="col-md-2 text-center">
+                <img src="/assets/img/avatar.png" class="rounded-circle shadow" width="90" height="90" alt="Avatar">
+                <span class="badge bg-success mt-3 px-3 py-1 rounded-pill">✔ Verificado</span>
+            </div>
+
+            <!-- Dados Pessoais -->
+            <div class="col-md-6">
+                <h4 class="fw-bold mb-1">João Silva</h4>
+                <p class="text-muted-custom mb-1">joao.silva@email.com</p>
+                <small class="text-muted-custom d-block">📅 Nascimento: 12/03/1990</small>
+                <small class="text-muted-custom d-block">📱 Telefone: (11) 91234-5678</small>
+                <small class="text-muted-custom d-block">📍 Localização: São Paulo, SP</small>
+                <button class="btn btn-outline-light-custom btn-sm mt-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                    ✏️ Editar Perfil
+                </button>
+            </div>
+
+            <!-- Nível e XP -->
+            <div class="col-md-4">
+                <h6 class="mb-1">Nível Atual: <span class="text-warning">Explorador</span></h6>
+                <small class="text-muted-custom">Experiência: 350 / 500 XP</small>
+                <div class="progress progress-custom mt-2">
+                    <div class="progress-bar bg-warning progress-bar-custom" style="width: 70%;"></div>
+                </div>
+                <div class="mt-3">
+                    <span class="badge badge-custom me-1">✔ Perfil Completo</span>
+                    <span class="badge badge-custom me-1">✔ Ativo Diário</span>
+                    <span class="badge badge-custom">✔ 1º Projeto Criado</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ SEÇÃO: METAS E PROGRESSO -->
+    <div class="row mb-4">
+        @{
+            var metas = new[] {
+        new { Titulo = "Leitura", Descricao = "2 de 12 livros", Progresso = "16.6%", Cor = "bg-success" },
+        new { Titulo = "Corrida", Descricao = "45 km de 100 km", Progresso = "45%", Cor = "bg-info" },
+        new { Titulo = "Curso React", Descricao = "30% concluído", Progresso = "30%", Cor = "bg-warning" },
+        new { Titulo = "Desafios Completos", Descricao = "3 de 10", Progresso = "30%", Cor = "bg-danger" }
+        };
+        }
+        @foreach (var meta in metas)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card card-custom text-center h-100">
+                    <div class="card-body">
+                        <h6 class="fw-bold">@meta.Titulo</h6>
+                        <p class="small text-muted-custom mb-2">@meta.Descricao</p>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar @meta.Cor progress-bar-custom" style="width: @meta.Progresso;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- ✅ SEÇÃO: PLANO PREMIUM + BOTÃO COM OFFCANVAS -->
+    <div class="card card-custom mb-4">
+        <div class="card-body row align-items-center">
+            <!-- Informações do Plano -->
+            <div class="col-md-8">
+                <h5 class="text-warning fw-bold">Plano Atual: Premium</h5>
+                <ul class="list-unstyled text-muted-custom small mb-3">
+                    <li>✔ Acesso total à plataforma</li>
+                    <li>✔ Suporte prioritário 24h</li>
+                    <li>✔ Recursos exclusivos e atualizações VIP</li>
+                    <li>✔ Gamificação desbloqueada</li>
+                    <li>✔ Comunidade Privada Premium</li>
+                </ul>
+                <p class="text-muted-custom">Renovação em: <strong class="text-white">05/05/2025</strong></p>
+                <!-- BOTÃO ABRE ABA FLUTUANTE -->
+                <button class="btn btn-outline-warning btn-sm rounded-pill fw-bold px-4" data-bs-toggle="offcanvas" data-bs-target="#planoPremiumCanvas">
+                    Gerenciar Plano
+                </button>
+            </div>
+
+            <!-- Dados rápidos -->
+            <div class="col-md-4 border-start border-secondary ps-4">
+                <p class="text-muted-custom small mb-1">Último acesso: <strong class="text-white">08/04/2025 - 04:21</strong></p>
+                <p class="text-muted-custom small mb-1">Projetos ativos: <strong class="text-white">5</strong></p>
+                <p class="text-muted-custom small mb-3">Status do uso: <span class="badge bg-success">✔ Dentro do limite</span></p>
+                <a href="#" class="btn btn-outline-light-custom btn-sm rounded-pill">📜 Ver Pagamentos</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ MODAL: EDITAR PERFIL -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content card-custom">
+            <div class="modal-header border-0">
+                <h5 class="modal-title">Editar Perfil</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="nome" value="João Silva">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control bg-secondary text-white border-0" id="email" value="joao.silva@email.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="telefone" value="(11) 91234-5678">
+                    </div>
+                    <div class="mb-3">
+                        <label for="localizacao" class="form-label">Localização</label>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="localizacao" value="São Paulo, SP">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-outline-light-custom rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success rounded-pill">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ ABA FLUTUANTE: OFFCANVAS COM DETALHES DO PLANO -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="planoPremiumCanvas" aria-labelledby="planoPremiumCanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="planoPremiumCanvasLabel" class="text-warning">Gerenciar Plano Premium</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Você está no plano <strong>Premium</strong>, com todos os recursos liberados. Aqui estão algumas ações:</p>
+        <ul class="small text-muted-custom">
+            <li>👑 Mudar para o plano Básico</li>
+            <li>🔄 Alterar método de pagamento</li>
+            <li>📅 Ver histórico de cobranças</li>
+            <li>🚪 Cancelar assinatura</li>
+        </ul>
+        <div class="mt-4">
+            <a href="#" class="btn btn-outline-warning w-100 mb-2 rounded-pill">Atualizar Pagamento</a>
+            <a href="#" class="btn btn-outline-danger w-100 rounded-pill">Cancelar Assinatura</a>
+        </div>
+    </div>
+</div>

@@ -4,19 +4,28 @@ namespace ProTemplateX.MVC.Models
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "O nome é obrigatório.")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres.")]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "O nome completo é obrigatório.")]
+        [Display(Name = "Nome completo")]
+        public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "O e-mail é obrigatório.")]
-        [EmailAddress(ErrorMessage = "E-mail inválido.")]
+        [EmailAddress(ErrorMessage = "Informe um e-mail válido.")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "A senha é obrigatória.")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Senha")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "A confirmação de senha é obrigatória.")]
         [Compare("Password", ErrorMessage = "As senhas não coincidem.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar Senha")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Aceito os termos")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "É necessário aceitar os termos.")]
+        public bool AceitaTermos { get; set; }
     }
 }

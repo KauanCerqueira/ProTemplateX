@@ -1,9 +1,63 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var nomeUsuario = HttpContextAccessor.HttpContext?.User?.Identity?.Name ?? "Usuário";
+}
+
+@{
     Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .navbar .material-icons {
+            vertical-align: middle;
+        }
+
+        .navbar-nav .dropdown-menu {
+            min-width: 200px;
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            padding: 4px 6px;
+        }
+
+        .sidenav {
+            height: 100vh !important;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        #sidenav-collapse-main {
+            flex-grow: 1;
+            overflow-y: hidden;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .navbar-nav {
+            flex-grow: 1;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+            .navbar-nav > .nav-item {
+                margin-bottom: 4px;
+            }
+
+                .navbar-nav > .nav-item:last-child {
+                    margin-bottom: 0 !important;
+                }
+    </style>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
@@ -26,7 +80,7 @@
         <div class="sidenav-header d-flex justify-content-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" id="iconSidenav"></i>
             <a class="navbar-brand m-0 d-flex justify-content-center" href="/">
-                <span class="font-weight-bold text-white">ProTemplateX</span>
+                <img src="~/assets/img/logos/logoSemFundo.PNG" alt="Logo ProTemplateX" style="height: 100px;" />
             </a>
         </div>
         <style>
@@ -115,58 +169,58 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                </nav>
 
-        <!-- NAVBAR (topo) -->
-        <style>
-            .input-group.input-group-outline .form-control:focus {
-                border-color: #000 !important;
-                box-shadow: 0 1px 0 0 #000 !important;
-            }
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end align-items-center">
+                    <ul class="navbar-nav justify-content-end align-items-center">
+                        <!-- Notificações -->
+                        <li class="nav-item dropdown mx-3">
+                            <a href="#" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="material-icons">notifications</i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger text-white">
+                                    3
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n2" aria-labelledby="dropdownMenuButton">
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="#">Nova mensagem recebida</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="#">Alerta do sistema</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md" href="#">Atualização disponível</a>
+                                </li>
+                            </ul>
+                        </li>
 
-            .input-group.input-group-outline.is-focused .form-label,
-            .input-group.input-group-outline.is-filled .form-label {
-                color: #000 !important;
-            }
-        </style>
-
-        <nav class="navbar navbar-expand-lg px-4 py-2 mb-4" style="background: transparent !important;">
-            <div class="container-fluid d-flex justify-content-end align-items-center">
-                <!-- Ícone de Notificações -->
-                <!-- Ícone de Notificações com Dropdown -->
-                <div class="dropdown me-3">
-                    <a href="#" class="text-dark position-relative dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons-round">notifications</i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            3
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end mt-2">
-                        <li><a class="dropdown-item" href="#">Notificação 1</a></li>
-                        <li><a class="dropdown-item" href="#">Notificação 2</a></li>
-                        <li><a class="dropdown-item" href="#">Notificação 3</a></li>
-                    </ul>
-                </div>
-
-                <!-- Botão de Perfil -->
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons-round me-2">account_circle</i>
-                        <span class="d-none d-md-inline">Perfil</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end mt-2">
-                        <li><a class="dropdown-item" href="#">Minha Conta</a></li>
-                        <li><a class="dropdown-item" href="#">Configurações</a></li>
-                        <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+                        <!-- Nome do usuário -->
+                        <li class="nav-item dropdown d-flex align-items-center">
+                            <a href="#" class="nav-link text-body font-weight-bold px-2" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="material-icons me-1">account_circle</i>
+                                <span class="d-sm-inline d-none">@User.Identity?.Name</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n2" aria-labelledby="userDropdown">
+                                <a class="dropdown-item border-radius-md" href="/Auth/Profile">Minha Conta</a>
+                                <li><a class="dropdown-item border-radius-md" href="/Account/Logout">Sair</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- CONTEÚDO RENDERIZADO PELA VIEW -->
+        <!-- Conteúdo -->
         <div class="container-fluid py-4">
             @RenderBody()
         </div>
     </main>
+
 
     <!-- SCRIPTS -->
     <script src="~/assets/js/core/popper.min.js"></script>
@@ -174,8 +228,15 @@
     <script src="~/assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="~/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="~/assets/js/material-dashboard.min.js?v=3.0.0"></script>
+
 </body>
 </html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidenav = document.getElementById("sidenav-main");
+        sidenav.style.height = window.innerHeight + "px";
+    });
+</script>
 <style>
     /* Remove os quadrados pretos animados do dropdown */
     .dropdown-toggle::after {
@@ -203,3 +264,6 @@
     }
 </style>
 
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

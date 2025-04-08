@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ProTemplateX.MVC.Models.RegisterViewModel
+@{
     Layout = null;
 }
 
@@ -11,55 +12,77 @@
 
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" />
-    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="~/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="~/assets/css/nucleo-svg.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
     <!-- Material Dashboard CSS -->
     <link id="pagestyle" href="~/assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+
+    <style>
+        .match {
+            border-bottom: 2px solid green !important;
+        }
+
+        .no-match {
+            border-bottom: 2px solid red !important;
+        }
+    </style>
 </head>
 <body class="bg-gray-200">
     <main class="main-content mt-0">
-        <div class="page-header align-items-start min-vh-100" style="background-image: url('/assets/img/logos/RegisterIconProTemplateX.png');">
+        <div class="page-header align-items-start min-vh-100" style="background-image: url('/assets/img/logos/LoginIconProTemplateX.png');">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container my-auto">
-                <div class="row">
-                    <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Cadastro</h4>
+                                <div class="bg-gradient-dark shadow-dark border-radius-lg text-center" style="padding-top: 5px; padding-bottom: 5px;">
+                                    <img src="~/assets/img/logos/logoSemFundo.PNG" alt="ProTemplateX Logo" style="max-height: 100px;">
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form role="form" class="text-start" method="post" action="/Auth/Register">
+                                <form asp-controller="Auth" asp-action="Register" method="post" class="text-start">
+                                    @Html.AntiForgeryToken()
+
                                     <div class="input-group input-group-outline my-3">
-                                        <label class="form-label">Nome</label>
-                                        <input type="text" name="name" class="form-control" required>
+                                        <label asp-for="NomeCompleto" class="form-label"></label>
+                                        <input asp-for="NomeCompleto" class="form-control" />
                                     </div>
+                                    <span asp-validation-for="NomeCompleto" class="text-danger small"></span>
+
+                                    <div class="input-group input-group-outline my-3">
+                                        <label asp-for="Email" class="form-label"></label>
+                                        <input asp-for="Email" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+
                                     <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" name="email" class="form-control" required>
+                                        <label asp-for="Password" class="form-label"></label>
+                                        <input asp-for="Password" class="form-control" type="password" id="password" />
                                     </div>
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+
                                     <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Senha</label>
-                                        <input type="password" name="password" class="form-control" required>
+                                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                                        <input asp-for="ConfirmPassword" class="form-control" type="password" id="confirmPassword" />
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Confirmar Senha</label>
-                                        <input type="password" name="confirmPassword" class="form-control" required>
-                                    </div>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+
                                     <div class="form-check form-switch d-flex align-items-center mb-3">
-                                        <input class="form-check-input" type="checkbox" id="acceptTerms" required>
-                                        <label class="form-check-label ms-2" for="acceptTerms">
-                                            Aceito os
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#termsModal" class="text-primary text-gradient font-weight-bold">Termos de Uso</a>
+                                        <input asp-for="AceitaTermos" class="form-check-input" type="checkbox" id="aceitaTermos" />
+                                        <label class="form-check-label ms-2" for="aceitaTermos">
+                                            Eu li e aceito os <a href="#" data-bs-toggle="modal" data-bs-target="#modalTermos">Termos de Uso</a>
                                         </label>
                                     </div>
+                                    <span asp-validation-for="AceitaTermos" class="text-danger small"></span>
+
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Cadastrar</button>
                                     </div>
+
                                     <p class="mt-4 text-sm text-center">
                                         Já tem uma conta?
                                         <a href="/Auth/Login" class="text-primary text-gradient font-weight-bold">Entrar</a>
@@ -71,48 +94,31 @@
                 </div>
             </div>
             <footer class="footer position-absolute bottom-2 py-2 w-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <span class="text-white text-sm">
-                                © <script>document.write(new Date().getFullYear())</script>, feito por Kauan Cerqueira <i class="fa fa-heart" aria-hidden="true"></i> por ProTemplateX.
-                            </span>
-                        </div>
-                    </div>
+                <div class="container text-center text-white">
+                    © <script>document.write(new Date().getFullYear())</script>, feito por Kauan Cerqueira.ProTemplateX.
                 </div>
             </footer>
         </div>
     </main>
 
-    <!-- Modal Termos de Uso -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <!-- Modal dos Termos de Uso -->
+    <!-- MODAL DOS TERMOS -->
+    <div class="modal fade" id="modalTermos" tabindex="-1" role="dialog" aria-labelledby="modalTermosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-gradient-dark text-white">
-                    <h5 class="modal-title" id="termsModalLabel">Termos de Uso</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="modalTermosLabel">Termos de Uso</h5>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
-                    <p>
-                        <strong>1. Aceitação dos Termos</strong><br>
-                        Ao criar uma conta no ProTemplateX, você concorda com os termos e condições descritos neste documento.
-                    </p>
-                    <p>
-                        <strong>2. Coleta e Uso de Dados</strong><br>
-                        Seus dados serão usados apenas para autenticação e personalização da plataforma.
-                    </p>
-                    <p>
-                        <strong>3. Responsabilidades do Usuário</strong><br>
-                        Você é responsável por manter suas credenciais seguras e por qualquer atividade feita sob sua conta.
-                    </p>
-                    <p>
-                        <strong>4. Modificações</strong><br>
-                        Os termos podem ser atualizados a qualquer momento. Verifique esta página periodicamente.
-                    </p>
-                    <p>
-                        <strong>5. Contato</strong><br>
-                        Para dúvidas sobre os termos, entre em contato pelo email suporte@protemplatex.com.
-                    </p>
+                <div class="modal-body text-dark">
+                    <p>Estes são os termos de uso do sistema ProTemplateX. Ao aceitar, você concorda com as condições de acesso, uso responsável, política de privacidade e segurança de dados.</p>
+                    <p>1. O uso do sistema é restrito a usuários autorizados;</p>
+                    <p>2. Não é permitido compartilhar sua conta com terceiros;</p>
+                    <p>3. Os dados cadastrados devem ser verídicos;</p>
+                    <p>4. A empresa se reserva o direito de suspender o acesso em caso de violação.</p>
+                    <p>Caso tenha dúvidas, entre em contato com o suporte.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-gradient-dark" data-bs-dismiss="modal">Fechar</button>
@@ -121,8 +127,58 @@
         </div>
     </div>
 
+    <!-- Scripts JS -->
     <script src="~/assets/js/core/popper.min.js"></script>
     <script src="~/assets/js/core/bootstrap.min.js"></script>
     <script src="~/assets/js/material-dashboard.min.js?v=3.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        // Label flutuante
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputs = document.querySelectorAll(".input-group input");
+            inputs.forEach(input => {
+                if (input.value.trim() !== "") {
+                    input.parentElement.classList.add("is-filled");
+                }
+                input.addEventListener("input", function () {
+                    if (input.value.trim() !== "") {
+                        input.parentElement.classList.add("is-filled");
+                    } else {
+                        input.parentElement.classList.remove("is-filled");
+                    }
+                });
+            });
+        });
+
+        // Validação visual das senhas com bordas
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        function validarSenhas() {
+            if (!password.value || !confirmPassword.value) {
+                password.classList.remove("border-danger", "border-success");
+                confirmPassword.classList.remove("border-danger", "border-success");
+                return;
+            }
+
+            if (password.value === confirmPassword.value) {
+                password.classList.add("border-success");
+                password.classList.remove("border-danger");
+                confirmPassword.classList.add("border-success");
+                confirmPassword.classList.remove("border-danger");
+            } else {
+                password.classList.add("border-danger");
+                password.classList.remove("border-success");
+                confirmPassword.classList.add("border-danger");
+                confirmPassword.classList.remove("border-success");
+            }
+        }
+
+        password.addEventListener("input", validarSenhas);
+        confirmPassword.addEventListener("input", validarSenhas);
+    </script>
 </body>
 </html>

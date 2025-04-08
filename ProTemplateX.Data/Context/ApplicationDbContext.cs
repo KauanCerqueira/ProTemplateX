@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProTemplateX.Data.Entities;
 
-namespace ProTemplateX.Data.Context
+namespace ProTemplateX.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -11,7 +11,6 @@ namespace ProTemplateX.Data.Context
         {
         }
 
-        // Adicione aqui os DbSet se já tiver entidades
-        // public DbSet<Exemplo> Exemplos { get; set; }
+        // DbSet<SeuModel> aqui
     }
 }
