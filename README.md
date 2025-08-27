@@ -1,151 +1,155 @@
+# ProTemplateX
 
-# 💼 ProTemplateX
+Template profissional para aplicações **ASP.NET Core 8** com **Razor Pages** e **ASP.NET MVC**, estruturado em camadas (clean architecture), **Identity + JWT**, mapeamento com **AutoMapper** e layout moderno com **Bootstrap 5**.
 
-> Template base profissional para projetos ASP.NET Core com Razor Pages, arquitetura limpa, autenticação JWT e design moderno com layout customizado.
-
----
-
-## 📚 Sobre o Projeto
-
-O **ProTemplateX** é um modelo escalável e reutilizável para desenvolvimento de aplicações web com **ASP.NET Core 8**, utilizando **Razor Pages** e **ASP.NET MVC** no frontend. Ele inclui autenticação com Identity, estrutura modular em camadas e uma base sólida para sistemas profissionais.
+> Foco: base reutilizável, padrão de organização e boas práticas para iniciar projetos de forma consistente.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
-
-### Backend:
-- ✅ ASP.NET Core 8 (Web API + MVC + Razor Pages)
-- ✅ Entity Framework Core (ORM)
-- ✅ ASP.NET Identity + JWT Auth
-- ✅ AutoMapper (mapeamento de DTOs)
-- ✅ SQL Server (padrão)
-
-### Frontend:
-- 🧹 Razor Pages + MVC
-- 📄 Razor Views customizadas
-- 🎨 Bootstrap 5 (estilização)
-- 💬 JavaScript para componentes interativos
+## Sumário
+- [Visão Geral](#visão-geral)
+- [Stack Tecnológico](#stack-tecnológico)
+- [Arquitetura & Estrutura](#arquitetura--estrutura)
+- [Funcionalidades](#funcionalidades)
+- [Demonstrações](#demonstrações)
+- [Como Executar](#como-executar)
+- [Configuração (appsettings)](#configuração-appsettings)
+- [Comandos Úteis (EF Core)](#comandos-úteis-ef-core)
+- [Roadmap](#roadmap)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
 ---
 
-## 🧱 Estrutura de Pastas
+## Visão Geral
+O **ProTemplateX** fornece um ponto de partida sólido para sistemas corporativos: autenticação pronta, separação de camadas, controllers/views organizados, padronização de DTOs e mapeamentos, além de uma base para evoluir com testes, observabilidade e CI/CD.
 
-```bash
+---
+
+## Stack Tecnológico
+
+**Backend**
+- ASP.NET Core 8 (Web API, MVC e Razor Pages)  
+- Entity Framework Core (ORM)  
+- ASP.NET Identity + JWT  
+- AutoMapper  
+- SQL Server (padrão)
+
+**Frontend**
+- Razor Pages & Razor Views  
+- Bootstrap 5  
+- JavaScript para componentes interativos
+
+---
+
+## Arquitetura & Estrutura
+
+Camadas separadas para apresentação, aplicação e infraestrutura, favorecendo testabilidade e manutenção.
+
+```
 /ProTemplateX
-🔹 1-Presentation
-🔽— ProTemplateX.WebAPI         # API ASP.NET Core com Razor Pages
-│   🔽— Views/Home              # Páginas como Index, Login, Cadastro
-│   🔽— Controllers             # Controllers MVC
-│   └️ wwwroot/assets          # Arquivos estáticos (CSS, JS, imagens)
-🔹 2-Application                # Regras de negócio
-🔹 3-Infra
-    🔽— Infra.Data             # Acesso a dados (EF Core)
-    └️ Infra.Domain           # Entidades + Interfaces
+1-Presentation/
+  ProTemplateX.WebAPI/             # ASP.NET Core (API) + MVC + Razor Pages
+    Controllers/
+    Views/                          # Ex.: Home/Index, Account/Login, Register
+    wwwroot/assets/                 # CSS, JS, imagens
+2-Application/                      # Regras de negócio, DTOs, Services
+3-Infra/
+  Infra.Data/                       # EF Core, Migrations, Repositórios
+  Infra.Domain/                     # Entidades e Interfaces
 ```
 
 ---
 
-## ✅ Funcionalidades Implementadas
-
-- Cadastro de usuários com Identity
-- Login com autenticação JWT
-- Telas de Login e Cadastro customizadas
-- Modal de Termos de Uso
-- Estrutura modular e escalável (Camadas Domain, Data e Application)
+## Funcionalidades
+- Cadastro e login de usuários com **Identity**
+- Autenticação **JWT** integrada
+- Telas de **Login** e **Cadastro** personalizadas
+- **Termos de Uso** via modal
+- Base modular e escalável (Domain, Data e Application)
+- Layout responsivo com Bootstrap
 
 ---
 
-## 📸 Demonstrações Visuais
+## Demonstrações
 
-### 🔐 Tela de Login
-
-Tela de login customizada com layout moderno, validação de campos e integração com Identity + JWT.
-
+**Tela de Login**  
 ![Tela de Login](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/login.png)
 
----
-
-### 🧑 Tela de Perfil do Usuário
-
-Exibição dos dados do usuário logado, com visual limpo e preparado para edição e upload de imagem.
-
+**Perfil do Usuário**  
 ![Profile](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/profile.png)
 
----
-
-### 📊 Dashboard Principal
-
-Exibe KPIs e painéis informativos com base nos dados do sistema. Desenvolvido com Razor Views e Bootstrap.
-
+**Dashboard Principal**  
 ![Dashboard 1](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard1.png)
 
----
-
-### 📈 Dashboard Avançada (Em Desenvolvimento)
-
-Versão aprimorada com cards adicionais e mais dados visuais em tempo real.
-
+**Dashboard Avançada (em desenvolvimento)**  
 ![Dashboard 2](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard2.png)
 
----
-
-### 🧩 Logomarca do Projeto
-
-Identidade visual personalizável para projetos empresariais.
-
+**Logomarca do Projeto**  
 ![Logo](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/Logo.png)
 
 ---
 
-## 📦 Como Executar o Projeto
+## Como Executar
 
-### 🪰 Requisitos
-
+### Requisitos
 - .NET 8 SDK  
-- Visual Studio 2022 ou VS Code  
-- SQL Server (ou LocalDB)
+- Visual Studio 2022 (ou VS Code)  
+- SQL Server / LocalDB
 
-### ⚙️ Backend + Frontend (Razor)
+### Passos
+1. Configure a **connection string** e o **JWT** no `appsettings.Development.json` (exemplo abaixo).  
+2. Aplique as **migrations** do EF Core (veja a seção “Comandos Úteis”).  
+3. Execute a aplicação:
 
 ```bash
-# Navegue até a API
+# Exemplo: executando a camada de apresentação
 cd 1-Presentation/ProTemplateX.WebAPI
-
-# Execute o projeto com Visual Studio ou CLI
 dotnet run
 
-# Acesse no navegador
+# Acesse
 http://localhost:5000
 ```
 
----
-
-## 🧪 Em Desenvolvimento
-
-- Painel de administração com cards e gráficos
-- Controle de permissões por Role
-- Upload de arquivos
-- Dashboard com KPIs, gráficos e tabela de dados
+> Caso utilize multiple startup projects (API + MVC), ajuste os perfis de execução no Visual Studio/launchSettings.
 
 ---
 
-## 🤝 Contribuindo
+## Comandos Úteis (EF Core)
 
-1. Faça um fork 🍝  
-2. Crie uma branch com sua feature:  
-   `git checkout -b feature/NovaFeature`  
-3. Commit suas alterações:  
-   `git commit -m 'feat: Minha nova feature'`  
-4. Push na branch:  
-   `git push origin feature/NovaFeature`  
-5. Abra um Pull Request ✅
+```bash
+# Criar migration
+dotnet ef migrations add InitialCreate -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
 
----
+# Atualizar banco
+dotnet ef database update -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
 
-## 📄 Licença
+# Reverter (opcional)
+dotnet ef database update LastGoodMigration -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
+```
 
-Este projeto está sob a licença MIT.
+> Ajuste os caminhos de `-p` (projeto de Data) e `-s` (startup) conforme sua solução.
 
 ---
 
-**Feito com ❤️ por Kauan Cerqueira**
+## Roadmap
+- Painel administrativo com cards e gráficos  
+- Controle de permissões por **Role/Policy**  
+- Upload de arquivos e gerenciamento de mídia  
+- Dashboard com **KPIs**, gráficos e tabelas  
+- Testes automatizados (unitários e integração)  
+- Observabilidade (logging estruturado e métricas)
+
+---
+
+## Contribuição
+1. Faça um fork do repositório  
+2. Crie uma branch: `git checkout -b feature/minha-feature`  
+3. Commit: `git commit -m "feat: descrição objetiva"`  
+4. Push: `git push origin feature/minha-feature`  
+5. Abra um Pull Request
+
+---
+
+## Licença
+Licenciado sob a **MIT License**.
