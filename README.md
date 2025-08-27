@@ -1,155 +1,183 @@
+<p align="right">English | <a href="README.pt-BR.md">Português (BR)</a></p>
+
 # ProTemplateX
 
-Template profissional para aplicações **ASP.NET Core 8** com **Razor Pages** e **ASP.NET MVC**, estruturado em camadas (clean architecture), **Identity + JWT**, mapeamento com **AutoMapper** e layout moderno com **Bootstrap 5**.
+A professional starter template for **ASP.NET Core 8** with **Razor Pages** and **ASP.NET MVC**, layered (clean) architecture, **Identity + JWT**, **AutoMapper**, and a modern layout using **Bootstrap 5**.
 
-> Foco: base reutilizável, padrão de organização e boas práticas para iniciar projetos de forma consistente.
+> Purpose: a reusable, opinionated base to start projects consistently with solid defaults and good practices.
 
 ---
 
-## Sumário
-- [Visão Geral](#visão-geral)
-- [Stack Tecnológico](#stack-tecnológico)
-- [Arquitetura & Estrutura](#arquitetura--estrutura)
-- [Funcionalidades](#funcionalidades)
-- [Demonstrações](#demonstrações)
-- [Como Executar](#como-executar)
-- [Configuração (appsettings)](#configuração-appsettings)
-- [Comandos Úteis (EF Core)](#comandos-úteis-ef-core)
+## Table of Contents
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Architecture & Structure](#architecture--structure)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [How to Run](#how-to-run)
+- [Configuration (appsettings)](#configuration-appsettings)
+- [Useful Commands (EF Core)](#useful-commands-ef-core)
 - [Roadmap](#roadmap)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## Visão Geral
-O **ProTemplateX** fornece um ponto de partida sólido para sistemas corporativos: autenticação pronta, separação de camadas, controllers/views organizados, padronização de DTOs e mapeamentos, além de uma base para evoluir com testes, observabilidade e CI/CD.
+## Overview
+**ProTemplateX** provides a solid starting point for enterprise web systems: ready-to-use authentication, layered separation, organized controllers/views, standardized DTOs and mappings, and a base that scales with tests, observability, and CI/CD.
 
 ---
 
-## Stack Tecnológico
+## Tech Stack
 
 **Backend**
-- ASP.NET Core 8 (Web API, MVC e Razor Pages)  
+- ASP.NET Core 8 (Web API, MVC, and Razor Pages)  
 - Entity Framework Core (ORM)  
 - ASP.NET Identity + JWT  
 - AutoMapper  
-- SQL Server (padrão)
+- SQL Server (default)
 
 **Frontend**
 - Razor Pages & Razor Views  
 - Bootstrap 5  
-- JavaScript para componentes interativos
+- JavaScript for interactive components
 
 ---
 
-## Arquitetura & Estrutura
+## Architecture & Structure
 
-Camadas separadas para apresentação, aplicação e infraestrutura, favorecendo testabilidade e manutenção.
+Clear separation into presentation, application, and infrastructure layers to improve testability and maintenance.
 
 ```
 /ProTemplateX
 1-Presentation/
   ProTemplateX.WebAPI/             # ASP.NET Core (API) + MVC + Razor Pages
     Controllers/
-    Views/                          # Ex.: Home/Index, Account/Login, Register
-    wwwroot/assets/                 # CSS, JS, imagens
-2-Application/                      # Regras de negócio, DTOs, Services
+    Views/                          # e.g., Home/Index, Account/Login, Register
+    wwwroot/assets/                 # CSS, JS, images
+2-Application/                      # Business rules, DTOs, Services
 3-Infra/
-  Infra.Data/                       # EF Core, Migrations, Repositórios
-  Infra.Domain/                     # Entidades e Interfaces
+  Infra.Data/                       # EF Core, Migrations, Repositories
+  Infra.Domain/                     # Entities and Interfaces
 ```
 
 ---
 
-## Funcionalidades
-- Cadastro e login de usuários com **Identity**
-- Autenticação **JWT** integrada
-- Telas de **Login** e **Cadastro** personalizadas
-- **Termos de Uso** via modal
-- Base modular e escalável (Domain, Data e Application)
-- Layout responsivo com Bootstrap
+## Features
+- User registration and login with **Identity**
+- Integrated **JWT** authentication
+- Customized **Login** and **Register** screens
+- **Terms of Use** via modal
+- Modular and scalable base (Domain, Data, and Application)
+- Responsive layout with Bootstrap
 
 ---
 
-## Demonstrações
+## Screenshots
 
-**Tela de Login**  
-![Tela de Login](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/login.png)
+**Login**  
+![Login](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/login.png)
 
-**Perfil do Usuário**  
+**User Profile**  
 ![Profile](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/profile.png)
 
-**Dashboard Principal**  
+**Main Dashboard**  
 ![Dashboard 1](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard1.png)
 
-**Dashboard Avançada (em desenvolvimento)**  
+**Advanced Dashboard (in progress)**  
 ![Dashboard 2](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/dashboard2.png)
 
-**Logomarca do Projeto**  
+**Project Logo**  
 ![Logo](https://raw.githubusercontent.com/KauanCerqueira/ProTemplateX/master/ProTemplateX.MVC/wwwroot/assets/img/prints/Logo.png)
 
 ---
 
-## Como Executar
+## How to Run
 
-### Requisitos
+### Requirements
 - .NET 8 SDK  
-- Visual Studio 2022 (ou VS Code)  
+- Visual Studio 2022 (or VS Code)  
 - SQL Server / LocalDB
 
-### Passos
-1. Configure a **connection string** e o **JWT** no `appsettings.Development.json` (exemplo abaixo).  
-2. Aplique as **migrations** do EF Core (veja a seção “Comandos Úteis”).  
-3. Execute a aplicação:
+### Steps
+1. Set the **connection string** and **JWT** in `appsettings.Development.json` (see example below).  
+2. Apply **EF Core migrations** (see “Useful Commands”).  
+3. Run the app:
 
 ```bash
-# Exemplo: executando a camada de apresentação
+# Example: starting the presentation layer
 cd 1-Presentation/ProTemplateX.WebAPI
 dotnet run
 
-# Acesse
+# Navigate to
 http://localhost:5000
 ```
 
-> Caso utilize multiple startup projects (API + MVC), ajuste os perfis de execução no Visual Studio/launchSettings.
+> If you use multiple startup projects (API + MVC), adjust your run profiles in Visual Studio/launchSettings.
 
 ---
 
-## Comandos Úteis (EF Core)
+## Configuration (appsettings)
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=ProTemplateX;User Id=sa;Password=Your_password123;TrustServerCertificate=True"
+  },
+  "Jwt": {
+    "Issuer": "ProTemplateX",
+    "Audience": "ProTemplateX",
+    "Key": "Replace-this-key-with-a-secure-and-very-long-value"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+> In production, **do not** commit secrets. Use **dotnet user-secrets**, environment variables, or a secrets vault.
+
+---
+
+## Useful Commands (EF Core)
 
 ```bash
-# Criar migration
+# Create migration
 dotnet ef migrations add InitialCreate -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
 
-# Atualizar banco
+# Update database
 dotnet ef database update -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
 
-# Reverter (opcional)
+# Roll back (optional)
 dotnet ef database update LastGoodMigration -p 3-Infra/Infra.Data -s 1-Presentation/ProTemplateX.WebAPI
 ```
 
-> Ajuste os caminhos de `-p` (projeto de Data) e `-s` (startup) conforme sua solução.
+> Adjust `-p` (Data project) and `-s` (startup) paths to match your solution.
 
 ---
 
 ## Roadmap
-- Painel administrativo com cards e gráficos  
-- Controle de permissões por **Role/Policy**  
-- Upload de arquivos e gerenciamento de mídia  
-- Dashboard com **KPIs**, gráficos e tabelas  
-- Testes automatizados (unitários e integração)  
-- Observabilidade (logging estruturado e métricas)
+- Admin panel with cards and charts  
+- Role/Policy-based authorization  
+- File upload and media management  
+- Dashboard with **KPIs**, charts, and tables  
+- Automated tests (unit and integration)  
+- Observability (structured logging and metrics)
 
 ---
 
-## Contribuição
-1. Faça um fork do repositório  
-2. Crie uma branch: `git checkout -b feature/minha-feature`  
-3. Commit: `git commit -m "feat: descrição objetiva"`  
-4. Push: `git push origin feature/minha-feature`  
-5. Abra um Pull Request
+## Contributing
+1. Fork the repository  
+2. Create a branch: `git checkout -b feature/my-feature`  
+3. Commit: `git commit -m "feat: concise description"`  
+4. Push: `git push origin feature/my-feature`  
+5. Open a Pull Request
 
 ---
 
-## Licença
-Licenciado sob a **MIT License**.
+## License
+Distributed under the **MIT License**.
